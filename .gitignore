@@ -1,0 +1,9 @@
+.idea/
+framework/cache/
+/vendor/
+composer.lock
+
+
+git:https://gitee.com
+tapphp
+yilian123456

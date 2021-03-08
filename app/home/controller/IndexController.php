@@ -1,0 +1,42 @@
+<?php
+namespace app\home;
+
+use core\Controller;
+use core\Template;
+
+class IndexController extends Controller{
+    public function index(){
+        Template::loadTemplate('header.index');
+        Template::loadTemplate('public.header.index');
+        Template::loadTemplate('header');
+        $this->assign('game', 1);
+        $this->assign('name', 2);
+        $this->assign('Site', 3);
+        $this->assign('tip', 4);
+        $this->assign('Tip', 5);
+        $this->assign('user', 7);
+        $this->assign('fu', [9,10]);
+        $this->display('');
+    }
+
+
+
+    public function back(){
+        Template::loadTemplate('header.index');
+        Template::loadTemplate('public.header.index');
+        Template::loadTemplate('header');
+        $this->assign('game', 1);
+        $this->assign('name', 2);
+        $this->assign('Site', 3);
+        $this->assign('tip', 4);
+        $this->assign('Tip', 5);
+        $this->assign('user', 7);
+        $this->assign('fu', [9,10]);
+        $this->display('fu/index');
+    }
+
+    public function indexcat($fg){
+        echo $fg;
+        echo "this is index cat";
+    }
+}

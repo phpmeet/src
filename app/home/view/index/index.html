@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>11gg
+    <meta charset="UTF-8">
+    <title>{{$name}}{{$game.name}}{{$game.sex}}</title>
+    <link rel="shortcut icon" href="{{:uri('img/ff.jpg')}}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    {{if $name==''}}
+    <script type="text/javascript">
+        (function (loc) {
+            var prot = "https:";
+            if (loc.protocol !== prot) {
+                loc.href = prot + loc.href.substring(loc.protocol.length);
+            }
+        })(window.location);
+    </script>
+    {{/if}}
+    <link href="{{:module('global.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{:module('user.css')}}" type="text/css" rel="stylesheet">
+</head>
+<body>
+这里是系统首页<br/>
+<div class="im-container">
+    <h2><i title="关闭会话" class="win-close">&times;</i>{{$game.name}}{{$Site.header}} </h2>
+    <div id="im-main">
+        <div class="im-message-box im-window" id="im-window"></div>
+    </div>
+
+</div>
+判断<br/>
+{{if $tip}}
+<div id="im-poptip" class="im-poptip-bg">
+    <div class="im-poptip-box">
+        <div class="im-poptip-header">系统公告</div>
+        <div class="im-poptip-title">{{$Tip.title.user.fu}}</div>
+        <div class="im-poptip-content">{{$Tip.message}}</div>
+        <div class="im-poptip-footer">
+            <div data-action="close" class="im-toolbar-icon im-button-gray">没问题了</div>
+            <div data-action="start" class="im-toolbar-icon im-button-gray">继续咨询客服</div>
+        </div>
+    </div>
+    {{$user.fu.sex}}
+</div>
+{{/if}}
+<div id="im-footer">
+    <p class="icp"><a href="http://www.beian.miit.gov.cn/publish/query/indexFirst.action" target="_blank"
+                      rel="nofollow">{{$Site.footer}}</a></p>
+</div>
+循环<br/>
+{{foreach $fu as $item}}
+<h2>22</h2>
+{{if ($item >8)}}
+大于8
+{{/if}}
+{{/foreach}}
+switch<br/>
+{{switch ($name)}}{{case 2}}这是2{{/case}}}
+    {{case 3}}这是3{{/case}}}
+    {{case 4}}这是4{{/case}}}
+{{/switch}}
+else<br/>
+{{if ($fu>9)}}
+大于9
+
+{{elseif $fu>1}}
+{{else}}
+
+小于9
+{{/if}}
+
+</body>
+
+
+
+</html>
