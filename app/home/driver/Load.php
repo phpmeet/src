@@ -18,16 +18,16 @@ class Load extends Driver
 
     public function before()
     {
-        echo "before<br/>";
+       // echo "before<br/>";
     }
 
     public function init()
     {
-        echo "init<br/>";
+       // echo "init<br/>";
     }
 
     public function after()
     {
-        echo "after<br/>";
+       // echo "after<br/>";
     }
 }
