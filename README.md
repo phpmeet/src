@@ -25,13 +25,13 @@ git clone https://gitee.com/phpmeet/src.git
 ## 目录结构
 ~~~
 ├─app              应用目录
-│  ├─common       公共模块方法
+│  ├─common        公共模块方法
 ├─bin              命令行模块目录
 ├─framework        核心框架
-│  ├─cache        缓存
-│  ├─config       配置目录
-│  ├─library      核心类库
-│  ├─route        路由目录
+│  ├─cache         缓存
+│  ├─config        配置目录
+│  ├─library       核心类库
+│  ├─route         路由目录
 ├─public           静态目录
 ├─vendor           composer目录
 ~~~
