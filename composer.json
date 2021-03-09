@@ -1,0 +1,12 @@
+{
+    "name": "phpmeet/src",
+    "description": "this is a php framework",
+    "authors": [
+        {
+            "name": "phpmeet"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    }
+}
