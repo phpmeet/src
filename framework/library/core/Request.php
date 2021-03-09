@@ -9,7 +9,7 @@ namespace core;
 
 class Request
 {
-    private static $_instance = null;
+    private static $instance = null;
 
     private $controllerPath = null;
 
@@ -34,10 +34,10 @@ class Request
 
     static public function getInstance()
     {
-        if (!self::$_instance) {
-            self::$_instance = new self();
+        if (!self::$instance) {
+            self::$instance = new self();
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
     public function isGet()

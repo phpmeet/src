@@ -12,12 +12,12 @@ use core\dao\Table;
 
 class Model
 {
-    public static $__table = null;
+    public static $table = null;
 
     public static function getDao()
     {
         $link = Dao::getLink();
-        return Table::getInstance(static::$__table, $link);
+        return Table::getInstance(static::$table, $link);
     }
 
     public static function create($data = [])

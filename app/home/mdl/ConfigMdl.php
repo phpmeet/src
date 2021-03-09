@@ -6,7 +6,7 @@ use core\Model;
 
 class ConfigMdl extends Model
 {
-    public static $__table = 'basic_config';
+    public static $table = 'basic_config';
 
     public static function getOne($where = [], $column = [])
     {

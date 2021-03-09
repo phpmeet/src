@@ -16,7 +16,7 @@ use core\exception\NotFoundException;
 class App
 {
 
-    private static $_instance = null;
+    private static $instance = null;
 
     private function __construct()
     {
@@ -25,10 +25,10 @@ class App
 
     static public function getInstance()
     {
-        if (!self::$_instance) {
-            self::$_instance = new self();
+        if (!self::$instance) {
+            self::$instance = new self();
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
     public function run()

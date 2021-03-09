@@ -12,7 +12,7 @@ use core\exception\NotFoundException;
 class Driver implements Init
 {
 
-    protected $__request = null;
+    protected $request = null;
 
     protected $mca = [];
 
@@ -20,7 +20,7 @@ class Driver implements Init
     {
         $this->before();
         $this->init();
-        $this->__request = Request::getInstance();
+        $this->request = Request::getInstance();
         $this->boostrap();
     }
 
@@ -29,17 +29,17 @@ class Driver implements Init
         $mca = Route::getInstance()->rewrite()->mca();
         if ($mca) {
             $controller = $mca['controller'];
-            $app        = $this->__request->app();
+            $app        = $this->request->app();
             $class      = $app . "\\" . $mca['controller'] . "Controller";
             $func       = $mca['action'];
             list($module, $controllerName) = explode("\\", $controller);
             Request::getInstance()->setModule(strtolower($module));
             Request::getInstance()->setController(strtolower($controllerName));
         } else {
-            $controller = $this->__request->controller();
-            $modulePath = $this->__request->modulePath();
+            $controller = $this->request->controller();
+            $modulePath = $this->request->modulePath();
             list($namespace, $module) = explode("/", $modulePath);
-            $func  = $this->__request->func();
+            $func  = $this->request->func();
             $class = $modulePath . '/' . ucfirst($controller) . 'Controller';
         }
         $this->loadCommon($module);

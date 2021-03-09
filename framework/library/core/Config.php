@@ -12,15 +12,15 @@ use core\exception\ErrorException;
 class Config
 {
 
-    private static $_instance = null;
+    private static $instance = null;
 
-    private static $_config = [];
+    private static $config = [];
 
-    private static $_dir = null;
+    private static $dir = null;
 
     private static $module = [];
 
-    private static $_data = null;
+    private static $data = null;
 
     private function __construct()
     {
@@ -29,30 +29,30 @@ class Config
 
     static public function getInstance()
     {
-        if (!self::$_instance) {
-            self::$_instance = new self();
+        if (!self::$instance) {
+            self::$instance = new self();
             self::init();
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
     public static function init()
     {
-        self::$_dir = CONFIG_ROOT;
-        if (!self::$_dir) {
+        self::$dir = CONFIG_ROOT;
+        if (!self::$dir) {
             throw new ErrorException('config dir is not existed');
         }
-        self::_parseConfig(self::$_dir);
+        self::_parseConfig(self::$dir);
     }
 
     private static function _parseConfig($dir)
     {
-        $file = scandir(self::$_dir);
+        $file = scandir(self::$dir);
         foreach ($file as $item) {
             if ($item != '.' && $item != '..') {
                 list($fileName, $val) = explode('.', $item);
                 $fileName = trim($fileName);
-                self::$_config[$fileName] = include self::$_dir . '/' . $item;
+                self::$config[$fileName] = include self::$dir . '/' . $item;
             }
         }
     }
@@ -72,10 +72,10 @@ class Config
     static private function _loadData($name = '')
     {
         $nameArr = explode('.', $name);
-        self::$_data = self::$_config;
+        self::$data = self::$config;
         foreach ($nameArr as $item) {
-            self::$_data = self::$_data[$item];
+            self::$data = self::$data[$item];
         }
-        self::$module[$name] = self::$_data;
+        self::$module[$name] = self::$data;
     }
 }

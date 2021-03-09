@@ -7,14 +7,11 @@
 
 namespace core;
 
-use core\exception\ErrorException;
 
 class Compile
 {
 
     private static $stance = null;
-
-    private $_option = [];
 
     private $template = [];
 

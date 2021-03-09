@@ -9,7 +9,7 @@ namespace core;
 
 class Controller
 {
-    private $_var = [];
+    private $var = [];
 
     public function __construct()
     {
@@ -32,11 +32,11 @@ class Controller
 
     public function assign($name, $val)
     {
-        $this->_var[$name] = $val;
+        $this->var[$name] = $val;
     }
 
     public function display($fileName = '')
     {
-        Template::getInstance()->load($this->_var, $fileName)->driver();
+        Template::getInstance()->load($this->var, $fileName)->driver();
     }
 }

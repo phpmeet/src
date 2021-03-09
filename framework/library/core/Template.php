@@ -14,9 +14,9 @@ class Template
 
     private static $stance = null;
 
-    private $_config = [];
+    private $config = [];
 
-    private $_dir = '';
+    private $dir = '';
 
     private $cacheFileArr = [];
 
@@ -24,12 +24,12 @@ class Template
 
     private function __construct()
     {
-        $this->_config['constroller'] = Request::getInstance()->controller();
-        $this->_config['module']      = Request::getInstance()->module();
-        $this->_config['func']        = Request::getInstance()->func();
-        $this->_config['namespace']   = Config::getInstance()->get('app.namespace');
-        $this->_config['cache']       = CACHE_ROOT . '/template';
-        $this->_dir                   = APP_ROOT;
+        $this->config['constroller'] = Request::getInstance()->controller();
+        $this->config['module']      = Request::getInstance()->module();
+        $this->config['func']        = Request::getInstance()->func();
+        $this->config['namespace']   = Config::getInstance()->get('app.namespace');
+        $this->config['cache']       = CACHE_ROOT . '/template';
+        $this->dir                   = APP_ROOT;
     }
 
     public static function getInstance()
@@ -42,11 +42,11 @@ class Template
 
     public function load($var = [], $fileName = '')
     {
-        $file        = $this->_dir . '/' . $this->_config['module'] . '/view/';
+        $file        = $this->dir . '/' . $this->config['module'] . '/view/';
         $this->var   = $var;
         $templateExt = Config::getInstance()->get('app.template.ext');
         if (!$fileName) {
-            $templateFileName = $file . $this->_config['constroller'] . '/' . $this->_config['func'];
+            $templateFileName = $file . $this->config['constroller'] . '/' . $this->config['func'];
         } else {
             $templateFileName = $file . $fileName;
         }
@@ -55,11 +55,11 @@ class Template
             throw new ErrorException(1001, $file . ' is not exist', $file, 0);
         }
         $hash     = md5_file($file);
-        $cacheDir = $this->_config['cache'];
+        $cacheDir = $this->config['cache'];
         if (!is_dir($cacheDir)) {
             mkdir($cacheDir, 0777, true);
         }
-        $name                      = $this->_config['cache'] . '/' . $hash;
+        $name                      = $this->config['cache'] . '/' . $hash;
         $cacheFile                 = $name . '.php';
         $this->cacheFileArr[$name] = $cacheFile;
         Compile::getInstance()->bootstrap($file, $cacheFile);
