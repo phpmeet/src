@@ -18,10 +18,10 @@ class Loader
         if (strpos($className, $coreNamespace) !== false) {
             $coreName  = basename(CORE_ROOT);
             $className = str_replace("{$coreName}\\", "", $className);
-            $fileName  = self::_getFile($className);
-            $fileName  = self::_parseDir($fileName);
+            $fileName  = self::getFile($className);
+            $fileName  = self::parseDir($fileName);
         } elseif (strpos($className, 'app') !== false) {
-            $fileName = self::_getFile($className, 1);
+            $fileName = self::getFile($className, 1);
         }
         if (is_file($fileName)) {
             require $fileName;
@@ -35,13 +35,13 @@ class Loader
         spl_autoload_register("core\\Loader::autoload");
     }
 
-    private static function _getFile($className, $type = 0)
+    private static function getFile($className, $type = 0)
     {
         if ($type == 0) {
             return CORE_ROOT . "/" . $className . EXT;
         }
         $classArr = explode('\\', $className);
-        $classArr = array_map(array(__CLASS__, '_parseStr'), $classArr);
+        $classArr = array_map(array(__CLASS__, 'parseStr'), $classArr);
         array_shift($classArr);
         $module  = array_shift($classArr);
         $class   = lcfirst(array_shift($classArr));
@@ -92,12 +92,12 @@ class Loader
         unset(self::$objects[$alias]);
     }
 
-    private static function _parseDir($name)
+    private static function parseDir($name)
     {
         return str_replace("\\", "/", $name);
     }
 
-    private static function _parseStr($str)
+    private static function parseStr($str)
     {
         return strtolower(trim($str));
     }
