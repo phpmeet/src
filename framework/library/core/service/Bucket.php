@@ -1,7 +1,7 @@
 <?php
 /**
- * 服务治理
- * 令牌桶处理
+ * 服务治理 (令牌桶处理)
+ * 限流
  */
 
 namespace core\service;
