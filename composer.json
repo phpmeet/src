@@ -1,9 +1,11 @@
 {
     "name": "phpmeet/src",
     "description": "this is a php framework",
+    "type": "project",
     "authors": [
         {
-            "name": "phpmeet"
+            "name": "phpmeet",
+            "email": "phpmeet@163.com"
         }
     ],
     "require": {
