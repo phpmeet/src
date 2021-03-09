@@ -13,7 +13,14 @@ phpmeet是一款专注于web和api开发的轻量php框架，具备常用的mvc�
   + 控制器前置和后置策略
   
 ## 安装
-#### composer快速安装
+#### 1、composer快速安装
+~~~
+composer create-project phpmeet/src phpmeet --prefer-dist
+~~~
+#### 2、git安装
+~~~
+
+~~~
 
 ## 部署
 #### 1、nginx部署
