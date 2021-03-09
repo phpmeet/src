@@ -1,6 +1,6 @@
-tapphp 1.0 承载梦想
+phpmeet 1.0 承载梦想
 ===============
-tappphp是一款专注于web和api开发的轻量php框架，具备常用的mvc架构模式。摆脱传统重量级框架所带来的性能损耗，一切由简而出
+phpmeet是一款专注于web和api开发的轻量php框架，具备常用的mvc架构模式。摆脱传统重量级框架所带来的性能损耗，一切由简而出
 
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D7.0-8892BF.svg)](http://www.php.net/)
 
