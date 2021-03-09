@@ -11,8 +11,5 @@
     "require": {
         "php": ">=7.0"
     },
-    "license": "MIT",
-    "config": {
-        "preferred-install": "dist"
-    }
+    "license": "MIT"
 }
